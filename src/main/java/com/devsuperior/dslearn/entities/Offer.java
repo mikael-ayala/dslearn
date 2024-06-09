@@ -3,7 +3,7 @@ package com.devsuperior.dslearn.entities;
 import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_offer")
@@ -18,6 +18,9 @@ public class Offer {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
+
+    @OneToMany(mappedBy = "offer")
+    private List<Resource> resources = new ArrayList<>();
 
     public Offer() {}
 
@@ -67,6 +70,10 @@ public class Offer {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public List<Resource> getResources() {
+        return resources;
     }
 
     @Override
