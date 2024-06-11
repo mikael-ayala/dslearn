@@ -23,6 +23,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Notification> notifications = new ArrayList<>();
 
+    @OneToMany(mappedBy = "author")
+    private Set<Topic> topics;
+
     public User() {}
 
     public User(Long id, String name, String email, String password, Set<Role> roles) {

@@ -32,6 +32,9 @@ public abstract class Lesson {
     @OneToMany(mappedBy = "lesson")
     private Set<Deliver> deliveries;
 
+    @OneToMany(mappedBy = "lesson")
+    private Set<Topic> topics;
+
     public Lesson() {}
 
     public Lesson(Long id, String title, Integer position, Section section) {

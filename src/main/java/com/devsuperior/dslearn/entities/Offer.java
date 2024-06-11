@@ -26,6 +26,9 @@ public class Offer {
     @OneToMany(mappedBy = "offer")
     private List<Resource> resources = new ArrayList<>();
 
+    @OneToMany(mappedBy = "offer")
+    private Set<Topic> topics = new HashSet<>();
+
     public Offer() {}
 
     public Offer(Long id, String edition, Instant startMoment, Instant endMoment, Course course) {
