@@ -26,7 +26,7 @@ public class Reply {
     @ManyToMany
     @JoinTable(name = "tb_reply_likes",
         joinColumns = @JoinColumn(name = "reply_id"),
-        inverseJoinColumns = @JoinColumn(name = "author_id"))
+        inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<User> likes;
 
     @OneToMany(mappedBy = "answer")
