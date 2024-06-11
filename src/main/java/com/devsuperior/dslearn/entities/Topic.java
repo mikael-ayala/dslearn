@@ -38,6 +38,13 @@ public class Topic {
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 
+    @OneToMany(mappedBy = "topic")
+    private Set<Reply> replies;
+
+    @ManyToOne
+    @JoinColumn(name = "reply_id")
+    private Reply answer;
+
     public Topic() {}
 
     public Topic(Long id, String title, String body, Instant moment, User author, Offer offer, Lesson lesson) {
@@ -104,6 +111,18 @@ public class Topic {
 
     public void setLesson(Lesson lesson) {
         this.lesson = lesson;
+    }
+
+    public Reply getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Reply answer) {
+        this.answer = answer;
+    }
+
+    public Set<Reply> getReplies() {
+        return replies;
     }
 
     public Set<User> getLikes() {
