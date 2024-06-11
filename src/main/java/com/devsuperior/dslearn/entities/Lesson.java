@@ -29,6 +29,9 @@ public abstract class Lesson {
             })
     private Set<Enrollment> enrollmentsDone = new HashSet<>();
 
+    @OneToMany(mappedBy = "lesson")
+    private Set<Deliver> deliveries;
+
     public Lesson() {}
 
     public Lesson(Long id, String title, Integer position, Section section) {
@@ -72,6 +75,10 @@ public abstract class Lesson {
 
     public Set<Enrollment> getEnrollmentsDone() {
         return enrollmentsDone;
+    }
+
+    public Set<Deliver> getDeliveries() {
+        return deliveries;
     }
 
     @Override
